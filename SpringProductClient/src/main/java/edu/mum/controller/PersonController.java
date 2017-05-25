@@ -8,10 +8,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import edu.mum.product.domain.Address;
 import edu.mum.product.domain.Person;
@@ -19,6 +21,7 @@ import edu.mum.product.domain.Product;
 import edu.mum.restclient.PersonRestClient;
 
 @Controller
+@SessionAttributes(value={"order", "person"})
 public class PersonController {
 	
 	@Autowired
@@ -41,6 +44,12 @@ public class PersonController {
 		personRestClient.create(newP);
 		
 		return "redirect:/personlist";
+	}
+	
+	@RequestMapping(value="/editmyprofile", method = RequestMethod.GET)
+	public String getMyProfile(Model model, @ModelAttribute("person") Person person){
+		model.addAttribute("pers", person);
+		return "editperson";
 	}
 	
 	@RequestMapping(value="/personlist", method = RequestMethod.GET)

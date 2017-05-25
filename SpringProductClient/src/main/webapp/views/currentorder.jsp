@@ -8,8 +8,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="/">Home</a>
+	<a href="/home">Home</a>
 	<h1>Current Order</h1>
+	<form method="post" action="/refreshorder">
+   					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+   					<input type="submit" value="Refresh Order" />
+   				</form>
 	<table border ="1">
 				<tr>
 					<th>Product</th>
@@ -21,14 +25,19 @@
    					<td><c:out value="${orderline.product.productName}"/></td>
    					<td><c:out value="${orderline.quantity}"/></td>
    				</tr>
+   				
 				</c:forEach>
-				<tr><td></td><td></td></tr>
+				<tr><td></td></tr>
 				<tr>
 					<td>Total Amount</td>
 					<td><c:out value="${order.getTotalAmount()}"/></td>
 				</tr>
 				
-			</table>
-			<form method="post" action="/addOrder"><input type="submit" value="Submit Order" /></form>
+				
+	</table>
+	<form method="post" action="/addOrder">
+		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+		<input type="submit" value="Submit Order" />
+	</form>
 </body>
 </html>

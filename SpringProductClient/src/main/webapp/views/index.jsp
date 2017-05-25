@@ -8,9 +8,8 @@
 </head>
 <body>
 	<h1>Spring Product Application</h1>
-	<a href="/orderlist">List of Order</a><br />
-	<a href="/productlist">List of product</a><br />
-	<a href="/personlist">List of Person</a><br />
+	
+	<p><a href="/home">Proceed</a></p>
 	
 </body>
 </html>

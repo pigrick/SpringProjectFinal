@@ -42,6 +42,12 @@ public class OrderController {
 		return "currentorder";
 	}
 	
+	@RequestMapping(value="/refreshorder", method= RequestMethod.POST)
+	public String refreshCurrentOrder(Model model){	
+		model.addAttribute("order", new Order());
+		return "redirect:/currentorder";
+	}
+	
 	@RequestMapping(value="/myorder", method=RequestMethod.GET)
 	public String getMyOrder(Model model, @ModelAttribute("person") Person person){
 		model.addAttribute("orders", orderRestClient.getOrderByPerson(person));
