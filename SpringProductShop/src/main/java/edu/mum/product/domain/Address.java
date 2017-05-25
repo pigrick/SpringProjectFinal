@@ -14,7 +14,15 @@ public class Address {
 	private String state;
 	private String country;
 	private String zipcode;
-
+	
+	public void setId(int id){
+		this.id = id;
+	}
+	
+	public int getId(){
+		return this.id;
+	}
+	
 	public String getCity() {
 		return city;
 	}

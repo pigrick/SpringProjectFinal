@@ -27,7 +27,7 @@ public class OrderRestClient {
 	}
 	
 	public List<Order> getOrderByPerson(Person person){
-		return Arrays.asList(restTemplate.getForObject("http://localhost:8080/orderRest/getOrderbyPerson/" + person.getId(), Order[].class));
+		return Arrays.asList(restTemplate.getForObject("http://localhost:8080/orderRest/getOrderByPerson/" + person.getId(), Order[].class));
 	}
 	
 	public void createOrder(Order order){

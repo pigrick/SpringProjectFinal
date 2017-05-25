@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<a href="/">Home</a>
 	<h1>Current Order</h1>
 	<table border ="1">
 				<tr>

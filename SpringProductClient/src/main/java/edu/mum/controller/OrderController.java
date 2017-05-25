@@ -1,6 +1,7 @@
 package edu.mum.controller;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -44,7 +45,8 @@ public class OrderController {
 	@RequestMapping(value="/myorder", method=RequestMethod.GET)
 	public String getMyOrder(Model model, @ModelAttribute("person") Person person){
 		model.addAttribute("orders", orderRestClient.getOrderByPerson(person));
-		return "myorder";
+		model.addAttribute("myorder", "My");
+		return "orderlist";
 	}
 	
 	@RequestMapping(value="/addOrderline", method = RequestMethod.POST)
@@ -70,6 +72,6 @@ public class OrderController {
 		orderRestClient.createOrder(order);
 		model.addAttribute("order", new Order());
 		
-		return "redirect:/index";
+		return "redirect:/myorder";
 	}
 }

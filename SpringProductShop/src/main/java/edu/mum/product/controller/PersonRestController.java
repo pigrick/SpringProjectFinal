@@ -38,4 +38,9 @@ public class PersonRestController {
 	    personService.savePerson(person);
 	}
 	
+	@RequestMapping(value = "/removePerson", method = RequestMethod.POST)
+	public void remove(@RequestBody Person person){
+	    personService.removePerson(person);
+	}
+	
 }

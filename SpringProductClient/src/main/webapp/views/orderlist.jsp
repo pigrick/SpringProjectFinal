@@ -8,7 +8,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>List of Orders</h1>
+	<a href="/">Home</a>
+	<h1>List of ${myorder} Orders</h1>
+	
+	<form method="get" action="/myorder">
+		<input type="submit" value="My Order" />
+	</form>
 	<ol>
 	
 	<c:forEach var="order" items="${orders}">

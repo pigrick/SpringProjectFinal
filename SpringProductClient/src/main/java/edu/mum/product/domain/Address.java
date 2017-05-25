@@ -22,7 +22,15 @@ public class Address {
 		this.country = country;
 		this.zipcode = zipcode;
 	}
-
+	
+	public void setId(int id){
+		this.id = id;
+	}
+	
+	public int getId(){
+		return this.id;
+	}
+	
 	public String getCity() {
 		return city;
 	}

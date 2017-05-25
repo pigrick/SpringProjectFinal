@@ -9,13 +9,16 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<a href="/">Home</a>
 	<h1>List of products</h1>
 	<form method="get" action="/createProduct"><input type="submit" value="Create Product" /></form>
 	<form method="get" action="/currentorder"><input type="submit" value="Order Cart" /></form>
 	<table border="1">
 	<tr>
 		<th>Product Name</th>
+		<th>Description</th>
 		<th>Price</th>
+		<th>Product Type</th>
 		<th>Order</th>
 		<th>Update</th>
 		<th>Delete</th>
@@ -26,6 +29,7 @@
    			<td><c:out value="${product.productName}"/></td>
    			<td><c:out value="${product.description}"/></td>
    			<td><c:out value="${product.price}"/></td>
+   			<td><c:out value="${product.productType}"/></td>
   
    			<td>
    			<form method="post" action="/addOrderline">

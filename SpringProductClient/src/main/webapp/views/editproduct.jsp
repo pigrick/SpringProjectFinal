@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<a href="/">Home</a>
 	<h1>Product Edit</h1>
 	<form method="post" action="/editProduct">
 		Product ID: ${product.id} <br />

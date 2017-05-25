@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<a href="/">Home</a>
 	<h1>List of Persons</h1>
 	<form method="get" action="/addPerson"><input type="submit" value="Add Person" /></form>
 	<table border="1">
@@ -19,23 +20,34 @@
 		<th>Phone</th>
 		<th>City</th>
 		<th>State</th>
-		<th>Zipcode</th>
+		<th>Zip code</th>
 		<th>Country</th>
-
+		<th>Edit</th>
+		<th>Delete</th>
 	</tr>
-	<c:forEach var="person" items="${persons}">
-		<tr>
-   			<td><c:out value="${person.firstName}"/></td>
-   			<td><c:out value="${person.lastName}"/></td>
-   			<td><c:out value="${person.email}"/></td>
-   			<td><c:out value="${person.phone}"/></td>
-   			<td><c:out value="${person.address.city}"/></td>
-   			<td><c:out value="${person.address.state}"/></td>
-   			<td><c:out value="${person.address.zipcode}"/></td>
-   			<td><c:out value="${person.address.country}"/></td>
-   			
-
-   		</tr>
+	<c:forEach var="pers" items="${persons}">
+	<tr>
+			<td><c:out value="${pers.firstName}" /></td>
+   			<td><c:out value="${pers.lastName}" /></td>
+   			<td><c:out value="${pers.email}" /></td>
+   			<td><c:out value="${pers.phone}" /></td>
+   			<td><c:out value="${pers.address.city}" /></td>
+   			<td><c:out value="${pers.address.state}" /></td>
+   			<td><c:out value="${pers.address.zipcode}" /></td>
+   			<td><c:out value="${pers.address.country}" /></td>
+   			<td>
+   				<form method="get" action="/editPerson">
+   					<input type="hidden" name="id" value="${pers.id}" />
+   					<input type="submit" value="edit" />
+   				</form>
+   			</td>
+   			<td>
+   				<form method="post" action="/removePerson">
+   					<input type="hidden" name="id" value="${pers.id}" />
+   					<input type="submit" value="Remove" />
+   				</form>
+   			</td>
+   	</tr>
 	</c:forEach>
 	
 	</table>

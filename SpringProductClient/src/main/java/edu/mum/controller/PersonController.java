@@ -48,4 +48,42 @@ public class PersonController {
 		model.addAttribute("persons", personRestClient.getAllPerson());		
 		return "personlist";
 	}
+	
+	@RequestMapping(value="/editPerson", method = RequestMethod.GET)
+	public String getEditPerson(long id, Model model){
+		model.addAttribute("pers", personRestClient.getPerson(id));		
+		return "editperson";
+	}
+	
+	@RequestMapping(value="/editPerson", method = RequestMethod.POST)
+	public String editPerson(long id, String firstName, String lastName, String email, String phone, String city, String state, String zipcode,String country, String enable){
+		Person pers = personRestClient.getPerson(id);
+		pers.setFirstName(firstName);
+		pers.setLastName(lastName);
+		pers.setEmail(email);
+		pers.setPhone(phone);
+		if(enable.equals("1")){
+			pers.setEnable(true);
+		} else {
+			pers.setEnable(false);
+		}
+		Address address = new Address();
+		if(pers.getAddress() != null){
+			address.setId(pers.getAddress().getId());
+		}
+		address.setCity(city);
+		address.setState(state);
+		address.setCountry(country);
+		address.setZipcode(zipcode);
+		pers.setAddress(address);
+		personRestClient.update(pers);
+		
+		return "redirect:/personlist";
+	}
+	
+	@RequestMapping(value="/removePerson", method = RequestMethod.POST)
+	public String removePerson(long id, Model model){
+		personRestClient.remove(personRestClient.getPerson(id));
+		return "redirect:/personlist";
+	}
 }

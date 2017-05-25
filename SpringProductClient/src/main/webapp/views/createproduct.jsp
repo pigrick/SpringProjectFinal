@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<a href="/">Home</a>
 	<h1>Product Creation</h1>
 	<form method="post" action="/createProduct">
 		Product Name: <input type="text" name="productName" /><br/>

@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<a href="/">Home</a>
 	<h1>Person Creation</h1>
 	<form method="post" action="/addPerson">
 		First Name: <input type="text" name="firstName" /><br/>
@@ -19,7 +20,8 @@
 		State: <input type="text" name="state" /><br/>
 		Zipcode: <input type="text" name="zipcode" /><br/>
 		Country: <input type="text" name="country" /><br/>
-		Enable: <input type="checkbox" name="enable" value="1"/>
+		Enable: Yes:<input type="radio" name="enable" value="1" />
+		No: <input type="radio" name="enable" value="0" checked />
 		<br />
 		<input type="submit" value="Create Product" />		
 	</form>

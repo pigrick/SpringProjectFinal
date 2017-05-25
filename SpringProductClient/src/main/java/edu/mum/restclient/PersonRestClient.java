@@ -33,4 +33,8 @@ public class PersonRestClient {
 	public void update(Person person){
 		restTemplate.postForObject("http://localhost:8080/personRest/savePerson", person, Person.class);
 	}
+	
+	public void remove(Person person){
+		restTemplate.postForObject("http://localhost:8080/personRest/removePerson", person, Person.class);
+	}
 }
