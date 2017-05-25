@@ -27,13 +27,7 @@ public class OrderRestController {
 	
 	@RequestMapping(value="/getAllOrder", method = RequestMethod.GET)
 	public List<Order> getAllOrder(){
-		List<Order> orders= orderService.findAll();
-		for(Order order: orders){
-			for(Orderline orderline : order.getOrderLines()){
-				orderline.setOrder(null);
-			}
-		}
-		return orders;
+		return orderService.findAll();
 	}
 	
 	@RequestMapping(value="/getOrder/{id}", method = RequestMethod.GET)
@@ -47,8 +41,12 @@ public class OrderRestController {
 	
 	@RequestMapping(value="/saveOrder", method = RequestMethod.POST)
 	public void saveOrder(@RequestBody Order order){
+		for(Orderline orderline: order.getOrderLines()){
+			orderline.setOrder(order);
+		}
 		orderService.save(order);
 	}
+	
 	
 
 }

@@ -34,9 +34,14 @@ public class ProductRestController {
 		return productService.getProduct(id);
 	}
 	
-	@RequestMapping(value="/createProduct", method = RequestMethod.POST)
-	public void createProduct(@RequestBody Product product){
+	@RequestMapping(value="/saveProduct", method = RequestMethod.POST)
+	public void saveProduct(@RequestBody Product product){
 		productService.save(product);
+	}
+	
+	@RequestMapping(value="/removeProduct", method = RequestMethod.POST)
+	public void removeProduct(@RequestBody Product product){
+		productService.delete(product);
 	}
 	
 }

@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Spring Product Application</title>
 </head>
 <body>
+	<h1>Spring Product Application</h1>
 	<a href="/orderlist">List of Order</a><br />
 	<a href="/productlist">List of product</a><br />
 	<a href="/personlist">List of Person</a><br />

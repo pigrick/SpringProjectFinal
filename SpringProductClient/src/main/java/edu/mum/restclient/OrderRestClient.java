@@ -32,7 +32,6 @@ public class OrderRestClient {
 	
 	public void createOrder(Order order){
 		restTemplate.postForObject("http://localhost:8080/orderRest/saveOrder", order, Order.class);
-		System.out.println("Order Save");
 	}
 	
 	

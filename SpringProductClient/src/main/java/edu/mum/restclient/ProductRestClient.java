@@ -37,7 +37,15 @@ public class ProductRestClient{
 	}
 	
 	public void createProduct(Product product){
-		restTemplate.postForObject("http://localhost:8080/productRest/createProduct", product, Product.class);
+		restTemplate.postForObject("http://localhost:8080/productRest/saveProduct", product, Product.class);
+	}
+	
+	public void updateProduct(Product product){
+		restTemplate.postForObject("http://localhost:8080/productRest/saveProduct", product, Product.class);
+	}
+	
+	public void removeProduct(Product product){
+		restTemplate.postForObject("http://localhost:8080/productRest/removeProduct", product, Product.class);
 	}
 
 

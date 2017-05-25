@@ -7,6 +7,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -20,6 +21,7 @@ public class Orderline {
 	private int quantity;
 	@OneToOne
 	private Product product;
+	@JsonIgnore
 	@ManyToOne
 	private Order order;
 

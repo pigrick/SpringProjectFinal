@@ -1,5 +1,6 @@
 package edu.mum.product.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -10,7 +11,19 @@ public class Orderline {
 	private int quantity;
 
 	private Product product;
+	@JsonIgnore
 	private Order order;
+	
+	public Orderline(){
+		
+	}
+	
+
+	public Orderline(int quantity, Product product) {
+		super();
+		this.quantity = quantity;
+		this.product = product;
+	}
 
 	public int getQuantity() {
 		return quantity;
